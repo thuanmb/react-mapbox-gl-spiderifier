@@ -1,6 +1,6 @@
 # react-mapboxgl-spiderifier
 
-Inspired by `mapboxgl-spiderifier` and `React`, I created this package for Mapbox Gl and React lover.
+Rendering the spiderifier into `react-mapbox-gl` as `React` component.
 
 Spiral/Circle positioning logic taken from and credits goes to https://github.com/jawj/OverlappingMarkerSpiderfier.
 
