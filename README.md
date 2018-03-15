@@ -17,7 +17,7 @@ https://github.com/alex3165/react-mapbox-gl
 
 ```js
 import ReactMapboxGl from 'react-mapbox-gl';
-import { ReactMapboxGlSpiderifier } from 'react-mapboxgl-spiderifier';
+import { ReactMapboxGlSpiderifier } from 'react-mapbox-gl-spiderifier';
 
 const Map = ReactMapboxGl({
   accessToken: '...',
