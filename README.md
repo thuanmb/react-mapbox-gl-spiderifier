@@ -5,7 +5,7 @@ Inspired by `mapboxgl-spiderifier` and `React`, I created this package for Mapbo
 Spiral/Circle positioning logic taken from and credits goes to https://github.com/jawj/OverlappingMarkerSpiderfier.
 
 ## Examples:
- - https://github.com/thuanmb/react-mapbox-gl-spiderifier/src/App.js
+ - https://github.com/thuanmb/react-mapbox-gl-spiderifier/blob/master/src/App.js
 
 ## Usage:
 
