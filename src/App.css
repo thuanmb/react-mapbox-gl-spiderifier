@@ -28,3 +28,7 @@
   text-align: center;
   border: 1px solid;
 }
+
+.mapboxgl-popup {
+	z-index: 999;
+}

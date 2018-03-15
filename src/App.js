@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactMapboxGl from 'react-mapbox-gl';
 import _ from 'lodash';
+import MapboxGl from 'mapbox-gl';
 import { ReactMapboxGlSpiderifier } from './node_modules';
 import './App.css';
 
@@ -20,11 +21,17 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    setInterval(
-      () => this.setState({ data: this.getRandomData() }),
-      3000
-    );
+  getEventHandlers() {
+    return {
+      onClick: (properties, coords, offset) => this.renderPopup(properties, coords, offset),
+      onMouseDown: (properties, coords, offset) => console.log(`Receive event onMouseDown at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+      onMouseEnter: (properties, coords, offset) => console.log(`Receive event onMouseEnter at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+      onMouseLeave: (properties, coords, offset) => console.log(`Receive event onMouseLeave at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+      onMouseMove: (properties, coords, offset) => console.log(`Receive event onMouseMove at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+      onMouseOut: (properties, coords, offset) => console.log(`Receive event onMouseOut at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+      onMouseOver: (properties, coords, offset) => console.log(`Receive event onMouseOver at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+      onMouseUp: (properties, coords, offset) => console.log(`Receive event at onMouseUp properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+    }
   }
 
   getRandomData() {
@@ -33,14 +40,31 @@ class App extends Component {
     return _.times(n, (index) => this.randomNumber(100, 10000));
   }
 
+  onStyleLoad = (map) => {
+    this.map = map;
+  };
+
   randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   }
 
-  renderSpiderifierContent(key, text) {
+  renderPopup(properties, coordinates, offset) {
+    if (this.currentPopup) {
+      this.currentPopup.remove();
+    }
+
+    setTimeout(() => {
+      this.currentPopup = new MapboxGl.Popup({ offset })
+        .setLngLat(coordinates)
+        .setHTML(`Some description for node ${properties.value}`)
+        .addTo(this.map);
+    });
+  }
+
+  renderSpiderifierContent(key, value) {
     return (
-      <div className="spiderifier-marker-content" key={key}>
-        <div>{text}</div>
+      <div className="spiderifier-marker-content" key={key} properties={{ value }}>
+        <div>{value}</div>
       </div>
     )
   }
@@ -48,8 +72,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Map {...mapProps}>
-          <ReactMapboxGlSpiderifier coordinates={[-0.2268, 51.5361]}>
+        <Map {...mapProps} onStyleLoad={this.onStyleLoad}>
+          <ReactMapboxGlSpiderifier
+            coordinates={[-0.2268, 51.5361]}
+            {...this.getEventHandlers()}
+           >
             {this.state.data.map((n, index) => this.renderSpiderifierContent(index, n))}
           </ReactMapboxGlSpiderifier>
         </Map>
