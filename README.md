@@ -1,6 +1,6 @@
 # react-mapboxgl-spiderifier
 
-Inspired by **mapboxgl-spiderifier** and **React**, I created this package for Mapbox Gl and React lover.
+Inspired by `mapboxgl-spiderifier` and `React`, I created this package for Mapbox Gl and React lover.
 
 Spiral/Circle positioning logic taken from and credits goes to https://github.com/jawj/OverlappingMarkerSpiderfier.
 
@@ -10,7 +10,7 @@ Spiral/Circle positioning logic taken from and credits goes to https://github.co
 ## Usage:
 
 #### Simple spiderfication
-Please note that the `ReactMapboxGlSpiderifier` should be used together with the **React** wrapper of `mapbox-gl` e.g. `react-mapbox-gl`.
+Please note that the `ReactMapboxGlSpiderifier` should be used together with the *React* wrapper of `mapbox-gl` e.g. `react-mapbox-gl`.
 https://github.com/alex3165/react-mapbox-gl
 
 ```js
@@ -72,62 +72,62 @@ class App extends Component {
 
 #### Properties
 
-**coordinates ([number, number])**
+*coordinates ([number, number])*
 Display the Spiderifier at the given position
 
-**circleSpiralSwitchover (number)**
+*circleSpiralSwitchover (number)*
 Show spiral instead of circle from this marker count upwards, 0 -> always spiral; Infinity -> always circle
 
-**circleFootSeparation (number)**
+*circleFootSeparation (number)*
 Related to circumference of circle
 
-**spiralFootSeparation (number)**
+*spiralFootSeparation (number)*
 Related to size of spiral
 
-**spiralLengthStart (number)**
+*spiralLengthStart (number)*
 Related to size of spiral
 
-**spiralLengthFactor (number)**
+*spiralLengthFactor (number)*
 Related to size of spiral
 
-**animate (bool)**
+*animate (bool)*
 To enable animate the spiral
 
-**animationSpeed (number)**
+*animationSpeed (number)*
 Animation speed in milliseconds
 
-**transformSpiderLeft (number)**
+*transformSpiderLeft (number)*
 The margin in left side of each spider
 
-**transformSpiderTop (number)**
+*transformSpiderTop (number)*
 The margin in top of each spider
 
-**showingLegs (bool)**
+*showingLegs (bool)*
 Indicate if the legs should be shown even when the spiderifier only have one spider element
 
 #### Events
-**onClick (function)**
+*onClick (function)*
 The click event handler
 
-**onMouseDown (function)**
+*onMouseDown (function)*
 The mouse down event handler
 
-**onMouseEnter (function)**
+*onMouseEnter (function)*
 The mouse enter event handler
 
-**onMouseLeave (function)**
+*onMouseLeave (function)*
 The mouse leave event handler
 
-**onMouseMove (function)**
+*onMouseMove (function)*
 The mouse move event handler
 
-**onMouseOut (function)**
+*onMouseOut (function)*
 The mouse out event handler
 
-**onMouseOver (function)**
+*onMouseOver (function)*
 The mouse over event handler
 
-**onMouseUp (function)**
+*onMouseUp (function)*
 The mouse up event handler
 
 ## ChangeLog:
