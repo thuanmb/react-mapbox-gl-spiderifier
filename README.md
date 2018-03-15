@@ -73,61 +73,80 @@ class App extends Component {
 #### Properties
 
 *coordinates ([number, number])*
+
 Display the Spiderifier at the given position
 
 *circleSpiralSwitchover (number)*
+
 Show spiral instead of circle from this marker count upwards, 0 -> always spiral; Infinity -> always circle
 
 *circleFootSeparation (number)*
+
 Related to circumference of circle
 
 *spiralFootSeparation (number)*
+
 Related to size of spiral
 
 *spiralLengthStart (number)*
+
 Related to size of spiral
 
 *spiralLengthFactor (number)*
+
 Related to size of spiral
 
 *animate (bool)*
+
 To enable animate the spiral
 
 *animationSpeed (number)*
+
 Animation speed in milliseconds
 
 *transformSpiderLeft (number)*
+
 The margin in left side of each spider
 
 *transformSpiderTop (number)*
+
 The margin in top of each spider
 
 *showingLegs (bool)*
+
 Indicate if the legs should be shown even when the spiderifier only have one spider element
 
 #### Events
 *onClick (function)*
+
 The click event handler
 
 *onMouseDown (function)*
+
 The mouse down event handler
 
 *onMouseEnter (function)*
+
 The mouse enter event handler
 
 *onMouseLeave (function)*
+
 The mouse leave event handler
 
 *onMouseMove (function)*
+
 The mouse move event handler
 
 *onMouseOut (function)*
+
 The mouse out event handler
 
 *onMouseOver (function)*
+
 The mouse over event handler
 
 *onMouseUp (function)*
+
 The mouse up event handler
 
 ## ChangeLog:
