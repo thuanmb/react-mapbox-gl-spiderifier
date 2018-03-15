@@ -7,6 +7,8 @@ Spiral/Circle positioning logic taken from and credits goes to https://github.co
 ## Examples:
  - https://github.com/thuanmb/react-mapbox-gl-spiderifier/blob/master/src/App.js
 
+![Demo Spiderifier.](./demo/demo.gif)
+
 ## Usage:
 
 #### Simple spiderfication
