@@ -1,4 +1,6 @@
 # react-mapboxgl-spiderifier
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/thuanmb/react-mapbox-gl-spiderifier/blob/master/LICENSE)
+[![npm downloads](https://img.shields.io/npm/dm/react-mapbox-gl-spiderifier.svg)](https://www.npmjs.com/package/react-mapbox-gl-spiderifier)
 
 Rendering the spiderifier into `react-mapbox-gl` as `React` component.
 
