@@ -18,6 +18,7 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
+      map: null,
     };
   }
 
@@ -52,7 +53,7 @@ class App extends Component {
   }
 
   onStyleLoad = map => {
-    this.map = map;
+    this.setState({map});
   };
 
   randomNumber(min, max) {
@@ -84,9 +85,14 @@ class App extends Component {
     return (
       <div className="App">
         <Map {...mapProps} onStyleLoad={this.onStyleLoad}>
-          <ReactMapboxGlSpiderifier coordinates={[-0.2268, 51.5361]} {...this.getEventHandlers()}>
-            {this.state.data.map((n, index) => this.renderSpiderifierContent(index, n))}
-          </ReactMapboxGlSpiderifier>
+          {this.state.map && (
+            <ReactMapboxGlSpiderifier
+              coordinates={[-0.2268, 51.5361]}
+              {...this.getEventHandlers()}
+              mapBox={this.state.map}>
+              {this.state.data.map((n, index) => this.renderSpiderifierContent(index, n))}
+            </ReactMapboxGlSpiderifier>
+          )}
         </Map>
       </div>
     );
