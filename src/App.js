@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
-import ReactMapboxGl from 'react-mapbox-gl';
-import _ from 'lodash';
-import MapboxGl from 'mapbox-gl';
-import {ReactMapboxGlSpiderifier} from './node_modules';
-import './App.css';
+import React, { Component } from "react";
+import ReactMapboxGl from "react-mapbox-gl";
+import _ from "lodash";
+import MapboxGl from "mapbox-gl";
+import { ReactMapboxGlSpiderifier } from "./node_modules";
+import "./App.css";
 
 const Map = ReactMapboxGl({
-  accessToken: process.env.REACT_APP_MAPBOX_GL_TOKEN,
+  accessToken: process.env.REACT_APP_MAPBOX_GL_TOKEN
 });
 
 const mapProps = {
-  style: 'mapbox://styles/mapbox/streets-v8',
+  style: "mapbox://styles/mapbox/streets-v8"
 };
 
 class App extends Component {
@@ -18,31 +18,46 @@ class App extends Component {
     super(props);
     this.state = {
       data: [],
-      map: null,
+      map: null
     };
   }
 
   componentDidMount() {
-    this.setState({data: this.getRandomData()});
+    this.setState({ data: this.getRandomData() });
   }
 
   getEventHandlers() {
     return {
-      onClick: (properties, coords, offset) => this.renderPopup(properties, coords, offset),
+      onClick: (properties, coords, offset) =>
+        this.renderPopup(properties, coords, offset),
       onMouseDown: (properties, coords, offset) =>
-        console.log(`Receive event onMouseDown at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+        console.log(
+          `Receive event onMouseDown at properties: ${properties}, coords: ${coords}, offset: ${offset}`
+        ),
       onMouseEnter: (properties, coords, offset) =>
-        console.log(`Receive event onMouseEnter at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+        console.log(
+          `Receive event onMouseEnter at properties: ${properties}, coords: ${coords}, offset: ${offset}`
+        ),
       onMouseLeave: (properties, coords, offset) =>
-        console.log(`Receive event onMouseLeave at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+        console.log(
+          `Receive event onMouseLeave at properties: ${properties}, coords: ${coords}, offset: ${offset}`
+        ),
       onMouseMove: (properties, coords, offset) =>
-        console.log(`Receive event onMouseMove at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+        console.log(
+          `Receive event onMouseMove at properties: ${properties}, coords: ${coords}, offset: ${offset}`
+        ),
       onMouseOut: (properties, coords, offset) =>
-        console.log(`Receive event onMouseOut at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+        console.log(
+          `Receive event onMouseOut at properties: ${properties}, coords: ${coords}, offset: ${offset}`
+        ),
       onMouseOver: (properties, coords, offset) =>
-        console.log(`Receive event onMouseOver at properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+        console.log(
+          `Receive event onMouseOver at properties: ${properties}, coords: ${coords}, offset: ${offset}`
+        ),
       onMouseUp: (properties, coords, offset) =>
-        console.log(`Receive event at onMouseUp properties: ${properties}, coords: ${coords}, offset: ${offset}`),
+        console.log(
+          `Receive event at onMouseUp properties: ${properties}, coords: ${coords}, offset: ${offset}`
+        )
     };
   }
 
@@ -53,7 +68,7 @@ class App extends Component {
   }
 
   onStyleLoad = map => {
-    this.setState({map});
+    this.setState({ map });
   };
 
   randomNumber(min, max) {
@@ -66,16 +81,20 @@ class App extends Component {
     }
 
     setTimeout(() => {
-      this.currentPopup = new MapboxGl.Popup({offset})
+      this.currentPopup = new MapboxGl.Popup({ offset })
         .setLngLat(coordinates)
         .setHTML(`Some description for node ${properties.value}`)
-        .addTo(this.map);
+        .addTo(this.state.map);
     });
   }
 
   renderSpiderifierContent(key, value) {
     return (
-      <div className="spiderifier-marker-content" key={key} properties={{value}}>
+      <div
+        className="spiderifier-marker-content"
+        key={key}
+        properties={{ value }}
+      >
         <div>{value}</div>
       </div>
     );
@@ -89,8 +108,10 @@ class App extends Component {
             <ReactMapboxGlSpiderifier
               coordinates={[-0.2268, 51.5361]}
               {...this.getEventHandlers()}
-              mapBox={this.state.map}>
-              {this.state.data.map((n, index) => this.renderSpiderifierContent(index, n))}
+            >
+              {this.state.data.map((n, index) =>
+                this.renderSpiderifierContent(index, n)
+              )}
             </ReactMapboxGlSpiderifier>
           )}
         </Map>
