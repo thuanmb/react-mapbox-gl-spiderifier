@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactMapboxGl from "react-mapbox-gl";
 import _ from "lodash";
 import MapboxGl from "mapbox-gl";
-import { ReactMapboxGlSpiderifier } from "./node_modules";
+import { ReactMapboxGlSpiderifier } from "./lib";
 import "./App.css";
 
 const Map = ReactMapboxGl({

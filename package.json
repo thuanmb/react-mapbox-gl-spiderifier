@@ -1,21 +1,27 @@
 {
   "name": "react-mapbox-gl-spiderifier",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.5",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thuanmb/react-mapbox-gl-spiderifier"
+  },
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "mapbox-gl": "^0.53.1",
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-mapbox-gl": "^4.2.0",
-    "react-scripts": "2.1.8"
+    "react-mapbox-gl": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__ --presets=react-app",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -27,5 +33,12 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "babel-preset-react-app": "^7.0.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-scripts": "2.1.8"
+  }
 }

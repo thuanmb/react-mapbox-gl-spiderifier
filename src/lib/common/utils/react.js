@@ -18,9 +18,17 @@ export const isReactComponent = component => {
     "type.prototype.isPureReactComponent"
   );
   const isFunctionalComponent = isFunctionComponent(component);
+  const isFragmentComponent =
+    _.toString(_.get(component, "type")) === "Symbol(react.fragment)";
+  const isReactMemoComponent =
+    _.toString(_.get(component, "$$typeof")) === "Symbol(react.memo)";
 
   return (
-    React.isValidElement(component) &&
-    (isReactComponent || isPureReactComponent || isFunctionalComponent)
+    isReactMemoComponent ||
+    (React.isValidElement(component) &&
+      (isReactComponent ||
+        isPureReactComponent ||
+        isFunctionalComponent ||
+        isFragmentComponent))
   );
 };

@@ -1,4 +1,5 @@
 # react-mapboxgl-spiderifier
+
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/thuanmb/react-mapbox-gl-spiderifier/blob/master/LICENSE)
 [![npm downloads](https://img.shields.io/npm/dm/react-mapbox-gl-spiderifier.svg)](https://www.npmjs.com/package/react-mapbox-gl-spiderifier)
 
@@ -7,13 +8,15 @@ Rendering the spiderifier into `react-mapbox-gl` as `React` component.
 Spiral/Circle positioning logic taken from and credits goes to https://github.com/jawj/OverlappingMarkerSpiderfier.
 
 ## Examples:
- - https://github.com/thuanmb/react-mapbox-gl-spiderifier/blob/master/src/App.js
+
+- https://github.com/thuanmb/react-mapbox-gl-spiderifier/blob/master/src/App.js
 
 ![Demo Spiderifier.](./demo/demo.gif)
 
 ## Usage:
 
 #### Simple spiderfication
+
 Please note that the `ReactMapboxGlSpiderifier` should be used together with the `React` wrapper of `mapbox-gl` e.g. `react-mapbox-gl`.
 https://github.com/alex3165/react-mapbox-gl
 
@@ -77,61 +80,66 @@ class App extends Component {
 #### Properties
 
 - `coordinates ([number, number])`
-Display the Spiderifier at the given position
+  Display the Spiderifier at the given position
 
 - `circleSpiralSwitchover (number)`
-Show spiral instead of circle from this marker count upwards, 0 -> always spiral; Infinity -> always circle
+  Show spiral instead of circle from this marker count upwards, 0 -> always spiral; Infinity -> always circle
 
 - `circleFootSeparation (number)`
-Related to circumference of circle
+  Related to circumference of circle
 
 - `spiralFootSeparation (number)`
-Related to size of spiral
+  Related to size of spiral
 
 - `spiralLengthStart (number)`
-Related to size of spiral
+  Related to size of spiral
 
 - `spiralLengthFactor (number)`
-Related to size of spiral
+  Related to size of spiral
 
 - `animate (bool)`
-To enable animate the spiral
+  To enable animate the spiral
 
 - `animationSpeed (number)`
-Animation speed in milliseconds
+  Animation speed in milliseconds
 
 - `transformSpiderLeft (number)`
-The margin in left side of each spider
+  The margin in left side of each spider
 
 - `transformSpiderTop (number)`
-The margin in top of each spider
+  The margin in top of each spider
 
 - `showingLegs (bool)`
-Indicate if the legs should be shown even when the spiderifier only have one spider element
+  Indicate if the legs should be shown even when the spiderifier only have one spider element
 
 #### Events
+
 - `onClick (function)`
-The click event handler
+  The click event handler
 
 - `onMouseDown (function)`
-The mouse down event handler
+  The mouse down event handler
 
 - `onMouseEnter (function)`
-The mouse enter event handler
+  The mouse enter event handler
 
 - `onMouseLeave (function)`
-The mouse leave event handler
+  The mouse leave event handler
 
 - `onMouseMove (function)`
-The mouse move event handler
+  The mouse move event handler
 
 - `onMouseOut (function)`
-The mouse out event handler
+  The mouse out event handler
 
 - `onMouseOver (function)`
-The mouse over event handler
+  The mouse over event handler
 
 - `onMouseUp (function)`
-The mouse up event handler
+  The mouse up event handler
 
 ## ChangeLog:
+
+### 0.1.5 [BREAKING CHANGES]
+
+- Upgrade all packages to latest version. These packages include: `react`, `mapbox-gl`, `react-mapbox-gl`,...
