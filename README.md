@@ -140,6 +140,10 @@ class App extends Component {
 
 ## ChangeLog:
 
+### 1.0.1
+
+- Upgrading the depedencies version.
+
 ### 0.2.0 [BREAKING CHANGES]
 
 - Upgrade all packages to latest version. These packages include: `react`, `mapbox-gl`, `react-mapbox-gl`,...
