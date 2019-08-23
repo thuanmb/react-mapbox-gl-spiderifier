@@ -140,6 +140,10 @@ class App extends Component {
 
 ## ChangeLog:
 
+### 1.0.2
+
+- Fix bundling issue
+
 ### 1.0.1
 
 - Upgrading the depedencies version.
