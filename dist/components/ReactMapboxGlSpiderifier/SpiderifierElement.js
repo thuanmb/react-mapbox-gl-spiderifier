@@ -1,10 +1,10 @@
 import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
 import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
 import _createClass from "@babel/runtime/helpers/esm/createClass";
-import _possibleConstructorReturn from "@babel/runtime/helpers/esm/possibleConstructorReturn";
-import _getPrototypeOf from "@babel/runtime/helpers/esm/getPrototypeOf";
 import _get from "@babel/runtime/helpers/esm/get";
+import _getPrototypeOf from "@babel/runtime/helpers/esm/getPrototypeOf";
 import _inherits from "@babel/runtime/helpers/esm/inherits";
+import _createSuper from "@babel/runtime/helpers/esm/createSuper";
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
@@ -12,17 +12,17 @@ import _ from "lodash";
 import { isReactComponent } from "../../common/utils";
 import { MarkerLayer } from "../MarkerLayer";
 
-var SpiderifierElement =
-/*#__PURE__*/
-function (_MarkerLayer) {
+var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
   _inherits(SpiderifierElement, _MarkerLayer);
+
+  var _super = _createSuper(SpiderifierElement);
 
   function SpiderifierElement(props) {
     var _this;
 
     _classCallCheck(this, SpiderifierElement);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SpiderifierElement).call(this, props));
+    _this = _super.call(this, props);
 
     _this.setChildRef = function (childRef) {
       return _this.childRef = _this.childRef || childRef;
@@ -86,10 +86,10 @@ function (_MarkerLayer) {
         transitionDelay = this._getTransitionDelay(props);
       }
 
-      return _objectSpread({}, style, {
-        marginLeft: marginLeft,
-        marginTop: marginTop,
-        transitionDelay: transitionDelay
+      return _objectSpread(_objectSpread({}, style), {}, {
+        marginLeft,
+        marginTop,
+        transitionDelay
       });
     }
   }, {
@@ -107,9 +107,9 @@ function (_MarkerLayer) {
     key: "getContent",
     value: function getContent(props) {
       var shouldRenderLeg = props.shouldRenderLeg;
-      return React.createElement("div", null, React.createElement("div", {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
         className: "icon-div"
-      }, this._getDecorateChildren(props)), shouldRenderLeg && React.createElement("div", {
+      }, this._getDecorateChildren(props)), shouldRenderLeg && /*#__PURE__*/React.createElement("div", {
         className: "line-div",
         style: this._getLegStyles(props)
       }));
@@ -149,7 +149,7 @@ function (_MarkerLayer) {
       return React.Children.map(children, function (child) {
         if (isReactComponent(child)) {
           return React.cloneElement(child, {
-            coordinates: coordinates,
+            coordinates,
             offset: _this3.getOffset(),
             ref: _this3.setChildRef,
             mapBox: _this3.getMapInstance()
@@ -165,7 +165,7 @@ function (_MarkerLayer) {
       var legLength = props.legLength,
           angle = props.angle,
           legStyles = props.legStyles;
-      return _objectSpread({}, legStyles, {
+      return _objectSpread(_objectSpread({}, legStyles), {}, {
         height: legLength,
         transform: "rotate(".concat(angle - Math.PI / 2, "rad)"),
         transitionDelay: this._getTransitionDelay(props)
@@ -184,7 +184,7 @@ function (_MarkerLayer) {
 }(MarkerLayer);
 
 SpiderifierElement.displayName = "SpiderifierElement";
-SpiderifierElement.propTypes = _objectSpread({}, MarkerLayer.propTypes, {
+SpiderifierElement.propTypes = _objectSpread(_objectSpread({}, MarkerLayer.propTypes), {}, {
   angle: PropTypes.number,
   animate: PropTypes.bool,
   legLength: PropTypes.number,

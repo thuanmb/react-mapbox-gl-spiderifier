@@ -1,9 +1,8 @@
 import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
 import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
 import _createClass from "@babel/runtime/helpers/esm/createClass";
-import _possibleConstructorReturn from "@babel/runtime/helpers/esm/possibleConstructorReturn";
-import _getPrototypeOf from "@babel/runtime/helpers/esm/getPrototypeOf";
 import _inherits from "@babel/runtime/helpers/esm/inherits";
+import _createSuper from "@babel/runtime/helpers/esm/createSuper";
 import React, { Children, Component } from "react";
 import _ from "lodash";
 import { checkPropsChange, extractEventHandlers } from "../../common/utils";
@@ -11,17 +10,17 @@ import SpiderifierElement from "./SpiderifierElement";
 import { TwoPi } from "./constants";
 import "./MapboxGlSpiderifier.css";
 
-var MapboxGlSpiderifier =
-/*#__PURE__*/
-function (_Component) {
+var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
   _inherits(MapboxGlSpiderifier, _Component);
+
+  var _super = _createSuper(MapboxGlSpiderifier);
 
   function MapboxGlSpiderifier(props) {
     var _this;
 
     _classCallCheck(this, MapboxGlSpiderifier);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(MapboxGlSpiderifier).call(this, props));
+    _this = _super.call(this, props);
     _this.state = {
       spiderParams: null
     };
@@ -36,9 +35,9 @@ function (_Component) {
       });
     }
   }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
-      this._updateSpiderParams(nextProps);
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      this._updateSpiderParams(prevProps);
     }
   }, {
     key: "_generateCircleParams",
@@ -54,8 +53,8 @@ function (_Component) {
       var angleStep = TwoPi / count;
       return _.times(count, function (index) {
         var angle = index * angleStep;
-        return _objectSpread({}, _this2._getSpiderPosition(props, legLength, angle), {
-          index: index,
+        return _objectSpread(_objectSpread({}, _this2._getSpiderPosition(props, legLength, angle)), {}, {
+          index,
           transitionDelay: _this2._getTransitionDelay(props, index)
         });
       });
@@ -78,10 +77,10 @@ function (_Component) {
       var shouldRenderLeg = count > 1 || showingLegs;
       var markersProps = count >= circleSpiralSwitchover ? this._generateSpiralParams(props) : this._generateCircleParams(props);
       return markersProps.map(function (markerProp) {
-        return _objectSpread({}, markerProp, {
-          animate: animate,
-          animationSpeed: animationSpeed,
-          shouldRenderLeg: shouldRenderLeg
+        return _objectSpread(_objectSpread({}, markerProp), {}, {
+          animate,
+          animationSpeed,
+          shouldRenderLeg
         });
       });
     }
@@ -100,8 +99,8 @@ function (_Component) {
       return _.times(count, function (index) {
         angle = angle + (spiralFootSeparation / legLength + index * 0.0005);
         legLength = legLength + TwoPi * spiralLengthFactor / angle;
-        return _objectSpread({}, _this3._getSpiderPosition(props, legLength, angle), {
-          index: index,
+        return _objectSpread(_objectSpread({}, _this3._getSpiderPosition(props, legLength, angle)), {}, {
+          index,
           transitionDelay: _this3._getTransitionDelay(props, index),
           style: {
             zIndex: count - index
@@ -141,7 +140,7 @@ function (_Component) {
         var legStyles = child.props.legStyles;
 
         if (params) {
-          return React.createElement(SpiderifierElement, Object.assign({
+          return /*#__PURE__*/React.createElement(SpiderifierElement, Object.assign({
             key: index,
             coordinates: coordinates,
             legStyles: legStyles
@@ -157,7 +156,7 @@ function (_Component) {
       var transformSpiderLeft = props.transformSpiderLeft,
           transformSpiderTop = props.transformSpiderTop;
       return {
-        angle: angle,
+        angle,
         legLength: legLength - transformSpiderLeft,
         x: legLength * Math.cos(angle) + transformSpiderLeft,
         y: legLength * Math.sin(angle) + transformSpiderTop
@@ -173,10 +172,10 @@ function (_Component) {
     }
   }, {
     key: "_updateSpiderParams",
-    value: function _updateSpiderParams(nextProps) {
-      if (checkPropsChange(this.props, nextProps, ["children", "circleFootSeparation", "circleSpiralSwitchover", "spiralFootSeparation", "spiralLengthStart", "spiralLengthFactor", "transformSpiderLeft", "showingLegs"], _.isEqual)) {
+    value: function _updateSpiderParams(prevProps) {
+      if (checkPropsChange(this.props, prevProps, ["children", "circleFootSeparation", "circleSpiralSwitchover", "spiralFootSeparation", "spiralLengthStart", "spiralLengthFactor", "transformSpiderLeft", "showingLegs"], _.isEqual)) {
         this.setState({
-          spiderParams: this._generateSpiderParams(nextProps)
+          spiderParams: this._generateSpiderParams(this.props)
         });
       }
     }

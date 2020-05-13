@@ -1,44 +1,36 @@
 {
-	"name": "react-mapbox-gl-spiderifier",
-	"version": "1.2.0",
-	"main": "dist/index.js",
-	"module": "dist/index.js",
-	"files": [
-		"dist",
-		"README.md"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/thuanmb/react-mapbox-gl-spiderifier"
-	},
-	"dependencies": {
-		"classnames": "2.2.6",
-		"lodash": "4.17.15",
-		"mapbox-gl": "1.10.0",
-		"node-sass": "4.14.1",
-		"prop-types": "15.7.2",
-		"react-mapbox-gl": "4.8.3"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__ --presets=./babelPresets.js",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": [
-		">0.2%",
-		"not dead",
-		"not ie <= 11",
-		"not op_mini all"
-	],
-	"devDependencies": {
-		"@babel/cli": "7.8.4",
-		"babel-preset-react-app": "9.1.2",
-		"react": "16.13.1",
-		"react-dom": "16.13.1",
-		"react-scripts": "3.4.1"
-	}
+    "name": "react-mapbox-gl-spiderifier",
+    "version": "1.4.0",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "files": ["dist", "README.md"],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/thuanmb/react-mapbox-gl-spiderifier"
+    },
+    "dependencies": {
+        "classnames": "2.2.6",
+        "lodash": "4.17.15",
+        "mapbox-gl": "1.10.0",
+        "node-sass": "4.14.1",
+        "prop-types": "15.7.2",
+        "react-mapbox-gl": "4.8.3"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__ --presets=./babelPresets.js",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
+    "devDependencies": {
+        "@babel/cli": "7.8.4",
+        "babel-preset-react-app": "9.1.2",
+        "react": "16.13.1",
+        "react-dom": "16.13.1",
+        "react-scripts": "3.4.1"
+    }
 }
