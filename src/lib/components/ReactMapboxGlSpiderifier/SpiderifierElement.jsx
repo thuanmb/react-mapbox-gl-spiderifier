@@ -8,16 +8,10 @@ import { MarkerLayer } from "../MarkerLayer";
 class SpiderifierElement extends MarkerLayer {
 	constructor(props) {
 		super(props);
+		const { animate } = props;
 		this.state = {
-			animateClass: ""
-		};
-	}
-
-	componentWillMount() {
-		const { animate } = this.props;
-		this.setState({
 			animateClass: classnames({ "animate initial": animate })
-		});
+		};
 	}
 
 	shouldComponentUpdate(nextProps, nextState) {

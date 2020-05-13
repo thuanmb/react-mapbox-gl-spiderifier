@@ -28,23 +28,16 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
       return _this.childRef = _this.childRef || childRef;
     };
 
+    var animate = props.animate;
     _this.state = {
-      animateClass: ""
+      animateClass: classnames({
+        "animate initial": animate
+      })
     };
     return _this;
   }
 
   _createClass(SpiderifierElement, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      var animate = this.props.animate;
-      this.setState({
-        animateClass: classnames({
-          "animate initial": animate
-        })
-      });
-    }
-  }, {
     key: "shouldComponentUpdate",
     value: function shouldComponentUpdate(nextProps, nextState) {
       return !_.isEqual(this.props, nextProps) || !_.isEqual(this.state, nextState);

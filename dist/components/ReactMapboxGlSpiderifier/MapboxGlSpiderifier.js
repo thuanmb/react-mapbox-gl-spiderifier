@@ -22,19 +22,12 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      spiderParams: null
+      spiderParams: _this._generateSpiderParams(props)
     };
     return _this;
   }
 
   _createClass(MapboxGlSpiderifier, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      this.setState({
-        spiderParams: this._generateSpiderParams()
-      });
-    }
-  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
       this._updateSpiderParams(prevProps);

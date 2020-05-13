@@ -10,12 +10,8 @@ class MapboxGlSpiderifier extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			spiderParams: null
+			spiderParams: this._generateSpiderParams(props)
 		};
-	}
-
-	componentWillMount() {
-		this.setState({ spiderParams: this._generateSpiderParams() });
 	}
 
 	componentDidUpdate(prevProps) {
