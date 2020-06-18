@@ -140,6 +140,10 @@ class App extends Component {
 
 ## ChangeLog:
 
+### 1.6.0
+
+- Refactoring
+
 ### 1.5.0
 
 - Migrating the componentWill*
