@@ -140,7 +140,7 @@ class App extends Component {
 
 ## ChangeLog:
 
-### 1.8.0
+### 1.9.0
 
 - Bump dependencies version
 
