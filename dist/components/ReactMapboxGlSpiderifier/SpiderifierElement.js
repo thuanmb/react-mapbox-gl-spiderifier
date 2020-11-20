@@ -1,27 +1,47 @@
-import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
-import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
-import _createClass from "@babel/runtime/helpers/esm/createClass";
-import _get from "@babel/runtime/helpers/esm/get";
-import _getPrototypeOf from "@babel/runtime/helpers/esm/getPrototypeOf";
-import _inherits from "@babel/runtime/helpers/esm/inherits";
-import _createSuper from "@babel/runtime/helpers/esm/createSuper";
-import React from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-import _ from "lodash";
-import { isReactComponent } from "../../common/utils";
-import { MarkerLayer } from "../MarkerLayer";
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectSpread2"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/createClass"));
+
+var _get2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/get"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/createSuper"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _lodash = _interopRequireDefault(require("lodash"));
+
+var _utils = require("../../common/utils");
+
+var _MarkerLayer2 = require("../MarkerLayer");
 
 var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
-  _inherits(SpiderifierElement, _MarkerLayer);
+  (0, _inherits2.default)(SpiderifierElement, _MarkerLayer);
 
-  var _super = _createSuper(SpiderifierElement);
+  var _super = (0, _createSuper2.default)(SpiderifierElement);
 
   function SpiderifierElement(props) {
     var _this;
 
-    _classCallCheck(this, SpiderifierElement);
-
+    (0, _classCallCheck2.default)(this, SpiderifierElement);
     _this = _super.call(this, props);
 
     _this.setChildRef = function (childRef) {
@@ -30,27 +50,27 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
 
     var animate = props.animate;
     _this.state = {
-      animateClass: classnames({
+      animateClass: (0, _classnames.default)({
         "animate initial": animate
       })
     };
     return _this;
   }
 
-  _createClass(SpiderifierElement, [{
+  (0, _createClass2.default)(SpiderifierElement, [{
     key: "shouldComponentUpdate",
     value: function shouldComponentUpdate(nextProps, nextState) {
-      return !_.isEqual(this.props, nextProps) || !_.isEqual(this.state, nextState);
+      return !_lodash.default.isEqual(this.props, nextProps) || !_lodash.default.isEqual(this.state, nextState);
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
-      _get(_getPrototypeOf(SpiderifierElement.prototype), "componentDidMount", this).call(this);
+      (0, _get2.default)((0, _getPrototypeOf2.default)(SpiderifierElement.prototype), "componentDidMount", this).call(this);
 
       if (this._animationEnabled()) {
-        _.delay(function () {
+        _lodash.default.delay(function () {
           return _this2.setState({
             animateClass: "animate"
           });
@@ -79,7 +99,7 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
         transitionDelay = this._getTransitionDelay(props);
       }
 
-      return _objectSpread(_objectSpread({}, style), {}, {
+      return (0, _objectSpread2.default)((0, _objectSpread2.default)({}, style), {}, {
         marginLeft,
         marginTop,
         transitionDelay
@@ -91,7 +111,7 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
       var animateClass = this.state.animateClass;
       var className = props.className,
           y = props.y;
-      return classnames("spidered-marker", className, animateClass, {
+      return (0, _classnames.default)("spidered-marker", className, animateClass, {
         top: y <= 0,
         bottom: y > 0
       });
@@ -100,9 +120,9 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
     key: "getContent",
     value: function getContent(props) {
       var shouldRenderLeg = props.shouldRenderLeg;
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
         className: "icon-div"
-      }, this._getDecorateChildren(props)), shouldRenderLeg && /*#__PURE__*/React.createElement("div", {
+      }, this._getDecorateChildren(props)), shouldRenderLeg && /*#__PURE__*/_react.default.createElement("div", {
         className: "line-div",
         style: this._getLegStyles(props)
       }));
@@ -139,9 +159,9 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
 
       var children = props.children,
           coordinates = props.coordinates;
-      return React.Children.map(children, function (child) {
-        if (isReactComponent(child)) {
-          return React.cloneElement(child, {
+      return _react.default.Children.map(children, function (child) {
+        if ((0, _utils.isReactComponent)(child)) {
+          return /*#__PURE__*/_react.default.cloneElement(child, {
             coordinates,
             offset: _this3.getOffset(),
             ref: _this3.setChildRef,
@@ -158,7 +178,7 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
       var legLength = props.legLength,
           angle = props.angle,
           legStyles = props.legStyles;
-      return _objectSpread(_objectSpread({}, legStyles), {}, {
+      return (0, _objectSpread2.default)((0, _objectSpread2.default)({}, legStyles), {}, {
         height: legLength,
         transform: "rotate(".concat(angle - Math.PI / 2, "rad)"),
         transitionDelay: this._getTransitionDelay(props)
@@ -172,24 +192,24 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
       return animate ? "".concat(transitionDelay, "s") : "";
     }
   }]);
-
   return SpiderifierElement;
-}(MarkerLayer);
+}(_MarkerLayer2.MarkerLayer);
 
 SpiderifierElement.displayName = "SpiderifierElement";
-SpiderifierElement.propTypes = _objectSpread(_objectSpread({}, MarkerLayer.propTypes), {}, {
-  angle: PropTypes.number,
-  animate: PropTypes.bool,
-  legLength: PropTypes.number,
-  legStyles: PropTypes.object,
-  index: PropTypes.number,
-  shouldRenderLeg: PropTypes.bool,
-  transitionDelay: PropTypes.number,
-  x: PropTypes.number,
-  y: PropTypes.number
+SpiderifierElement.propTypes = (0, _objectSpread2.default)((0, _objectSpread2.default)({}, _MarkerLayer2.MarkerLayer.propTypes), {}, {
+  angle: _propTypes.default.number,
+  animate: _propTypes.default.bool,
+  legLength: _propTypes.default.number,
+  legStyles: _propTypes.default.object,
+  index: _propTypes.default.number,
+  shouldRenderLeg: _propTypes.default.bool,
+  transitionDelay: _propTypes.default.number,
+  x: _propTypes.default.number,
+  y: _propTypes.default.number
 });
 SpiderifierElement.defaultProps = {
   animate: true,
   transitionDelay: 200
 };
-export default SpiderifierElement;
+var _default = SpiderifierElement;
+exports.default = _default;

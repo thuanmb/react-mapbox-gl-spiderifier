@@ -1,25 +1,45 @@
-import _objectSpread from "@babel/runtime/helpers/esm/objectSpread2";
-import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
-import _createClass from "@babel/runtime/helpers/esm/createClass";
-import _inherits from "@babel/runtime/helpers/esm/inherits";
-import _createSuper from "@babel/runtime/helpers/esm/createSuper";
-import React, { Children, Component } from "react";
-import _ from "lodash";
-import { checkPropsChange, extractEventHandlers } from "../../common/utils";
-import SpiderifierElement from "./SpiderifierElement";
-import { TwoPi } from "./constants";
-import "./MapboxGlSpiderifier.css";
+"use strict";
+
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/objectSpread2"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/createClass"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/createSuper"));
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _lodash = _interopRequireDefault(require("lodash"));
+
+var _utils = require("../../common/utils");
+
+var _SpiderifierElement = _interopRequireDefault(require("./SpiderifierElement"));
+
+var _constants = require("./constants");
+
+require("./MapboxGlSpiderifier.css");
 
 var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
-  _inherits(MapboxGlSpiderifier, _Component);
+  (0, _inherits2.default)(MapboxGlSpiderifier, _Component);
 
-  var _super = _createSuper(MapboxGlSpiderifier);
+  var _super = (0, _createSuper2.default)(MapboxGlSpiderifier);
 
   function MapboxGlSpiderifier(props) {
     var _this;
 
-    _classCallCheck(this, MapboxGlSpiderifier);
-
+    (0, _classCallCheck2.default)(this, MapboxGlSpiderifier);
     _this = _super.call(this, props);
     _this.state = {
       spiderParams: _this._generateSpiderParams(props)
@@ -27,7 +47,7 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
     return _this;
   }
 
-  _createClass(MapboxGlSpiderifier, [{
+  (0, _createClass2.default)(MapboxGlSpiderifier, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
       this._updateSpiderParams(prevProps);
@@ -41,12 +61,12 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
 
       var circleFootSeparation = props.circleFootSeparation;
       var circumference = circleFootSeparation * (2 + count);
-      var legLength = circumference / TwoPi; // = radius from circumference
+      var legLength = circumference / _constants.TwoPi; // = radius from circumference
 
-      var angleStep = TwoPi / count;
-      return _.times(count, function (index) {
+      var angleStep = _constants.TwoPi / count;
+      return _lodash.default.times(count, function (index) {
         var angle = index * angleStep;
-        return _objectSpread(_objectSpread({}, _this2._getSpiderPosition(props, legLength, angle)), {}, {
+        return (0, _objectSpread2.default)((0, _objectSpread2.default)({}, _this2._getSpiderPosition(props, legLength, angle)), {}, {
           index,
           transitionDelay: _this2._getTransitionDelay(props, index)
         });
@@ -70,7 +90,7 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
       var shouldRenderLeg = count > 1 || showingLegs;
       var markersProps = count >= circleSpiralSwitchover ? this._generateSpiralParams(props) : this._generateCircleParams(props);
       return markersProps.map(function (markerProp) {
-        return _objectSpread(_objectSpread({}, markerProp), {}, {
+        return (0, _objectSpread2.default)((0, _objectSpread2.default)({}, markerProp), {}, {
           animate,
           animationSpeed,
           shouldRenderLeg
@@ -89,10 +109,10 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
           spiralLengthStart = props.spiralLengthStart;
       var angle = 0;
       var legLength = spiralLengthStart;
-      return _.times(count, function (index) {
+      return _lodash.default.times(count, function (index) {
         angle = angle + (spiralFootSeparation / legLength + index * 0.0005);
-        legLength = legLength + TwoPi * spiralLengthFactor / angle;
-        return _objectSpread(_objectSpread({}, _this3._getSpiderPosition(props, legLength, angle)), {}, {
+        legLength = legLength + _constants.TwoPi * spiralLengthFactor / angle;
+        return (0, _objectSpread2.default)((0, _objectSpread2.default)({}, _this3._getSpiderPosition(props, legLength, angle)), {}, {
           index,
           transitionDelay: _this3._getTransitionDelay(props, index),
           style: {
@@ -106,7 +126,7 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
     value: function _getNotNullChildren() {
       var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.props;
       var children = props.children;
-      return Children.toArray(children).filter(function (child) {
+      return _react.Children.toArray(children).filter(function (child) {
         return child !== null;
       });
     }
@@ -127,13 +147,13 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
       }
 
       var coordinates = this.props.coordinates;
-      var eventHanders = extractEventHandlers(this.props);
+      var eventHanders = (0, _utils.extractEventHandlers)(this.props);
       return this._getNotNullChildren().map(function (child, index) {
         var params = spiderParams[index];
         var legStyles = child.props.legStyles;
 
         if (params) {
-          return /*#__PURE__*/React.createElement(SpiderifierElement, Object.assign({
+          return /*#__PURE__*/_react.default.createElement(_SpiderifierElement.default, Object.assign({
             key: index,
             coordinates: coordinates,
             legStyles: legStyles
@@ -166,7 +186,7 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
   }, {
     key: "_updateSpiderParams",
     value: function _updateSpiderParams(prevProps) {
-      if (checkPropsChange(this.props, prevProps, ["children", "circleFootSeparation", "circleSpiralSwitchover", "spiralFootSeparation", "spiralLengthStart", "spiralLengthFactor", "transformSpiderLeft", "showingLegs"], _.isEqual)) {
+      if ((0, _utils.checkPropsChange)(this.props, prevProps, ["children", "circleFootSeparation", "circleSpiralSwitchover", "spiralFootSeparation", "spiralLengthStart", "spiralLengthFactor", "transformSpiderLeft", "showingLegs"], _lodash.default.isEqual)) {
         this.setState({
           spiderParams: this._generateSpiderParams(this.props)
         });
@@ -178,9 +198,8 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
       return this._getSpiderifierMarkers();
     }
   }]);
-
   return MapboxGlSpiderifier;
-}(Component);
+}(_react.Component);
 
 MapboxGlSpiderifier.displayName = "MapboxGlSpiderifier";
 MapboxGlSpiderifier.defaultProps = {
@@ -195,4 +214,5 @@ MapboxGlSpiderifier.defaultProps = {
   transformSpiderTop: 0,
   showingLegs: false
 };
-export default MapboxGlSpiderifier;
+var _default = MapboxGlSpiderifier;
+exports.default = _default;
