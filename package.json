@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "classnames": "2.2.6",
-        "lodash": "4.17.20",
+        "lodash": "4.17.21",
         "mapbox-gl": "1.13.0",
         "node-sass": "5.0.0",
         "prop-types": "15.7.2",
