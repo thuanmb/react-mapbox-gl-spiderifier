@@ -100,9 +100,9 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
       }
 
       return (0, _objectSpread2.default)((0, _objectSpread2.default)({}, style), {}, {
-        marginLeft,
-        marginTop,
-        transitionDelay
+        marginLeft: marginLeft,
+        marginTop: marginTop,
+        transitionDelay: transitionDelay
       });
     }
   }, {
@@ -162,7 +162,7 @@ var SpiderifierElement = /*#__PURE__*/function (_MarkerLayer) {
       return _react.default.Children.map(children, function (child) {
         if ((0, _utils.isReactComponent)(child)) {
           return /*#__PURE__*/_react.default.cloneElement(child, {
-            coordinates,
+            coordinates: coordinates,
             offset: _this3.getOffset(),
             ref: _this3.setChildRef,
             mapBox: _this3.getMapInstance()

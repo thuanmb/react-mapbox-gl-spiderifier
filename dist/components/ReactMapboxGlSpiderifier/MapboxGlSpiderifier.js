@@ -67,7 +67,7 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
       return _lodash.default.times(count, function (index) {
         var angle = index * angleStep;
         return (0, _objectSpread2.default)((0, _objectSpread2.default)({}, _this2._getSpiderPosition(props, legLength, angle)), {}, {
-          index,
+          index: index,
           transitionDelay: _this2._getTransitionDelay(props, index)
         });
       });
@@ -91,9 +91,9 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
       var markersProps = count >= circleSpiralSwitchover ? this._generateSpiralParams(props) : this._generateCircleParams(props);
       return markersProps.map(function (markerProp) {
         return (0, _objectSpread2.default)((0, _objectSpread2.default)({}, markerProp), {}, {
-          animate,
-          animationSpeed,
-          shouldRenderLeg
+          animate: animate,
+          animationSpeed: animationSpeed,
+          shouldRenderLeg: shouldRenderLeg
         });
       });
     }
@@ -113,7 +113,7 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
         angle = angle + (spiralFootSeparation / legLength + index * 0.0005);
         legLength = legLength + _constants.TwoPi * spiralLengthFactor / angle;
         return (0, _objectSpread2.default)((0, _objectSpread2.default)({}, _this3._getSpiderPosition(props, legLength, angle)), {}, {
-          index,
+          index: index,
           transitionDelay: _this3._getTransitionDelay(props, index),
           style: {
             zIndex: count - index
@@ -169,7 +169,7 @@ var MapboxGlSpiderifier = /*#__PURE__*/function (_Component) {
       var transformSpiderLeft = props.transformSpiderLeft,
           transformSpiderTop = props.transformSpiderTop;
       return {
-        angle,
+        angle: angle,
         legLength: legLength - transformSpiderLeft,
         x: legLength * Math.cos(angle) + transformSpiderLeft,
         y: legLength * Math.sin(angle) + transformSpiderTop
