@@ -1,9 +1,12 @@
 {
     "name": "react-mapbox-gl-spiderifier",
-    "version": "1.10.0",
+    "version": "1.11.0",
     "main": "dist/index.js",
     "module": "dist/index.js",
-    "files": ["dist", "README.md"],
+    "files": [
+        "dist",
+        "README.md"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/thuanmb/react-mapbox-gl-spiderifier"
@@ -11,9 +14,9 @@
     "dependencies": {
         "classnames": "2.3.1",
         "lodash": "4.17.21",
-        "mapbox-gl": "1.13.2",
-        "node-sass": "7.0.0",
-        "prop-types": "15.7.2",
+        "mapbox-gl": "2.9.2",
+        "node-sass": "7.0.1",
+        "prop-types": "15.8.1",
         "react-mapbox-gl": "5.1.1"
     },
     "scripts": {
@@ -25,12 +28,15 @@
     "eslintConfig": {
         "extends": "react-app"
     },
-    "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"],
+    "browserslist": [
+        "defaults",
+        "not ie 11"
+    ],
     "devDependencies": {
-        "@babel/cli": "7.16.0",
-        "babel-preset-react-app": "10.0.0",
-        "react": "17.0.2",
-        "react-dom": "17.0.2",
-        "react-scripts": "4.0.3"
+        "@babel/cli": "7.18.10",
+        "babel-preset-react-app": "10.0.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-scripts": "5.0.1"
     }
 }

@@ -183,3 +183,21 @@ class App extends Component {
 ### 0.2.0 [BREAKING CHANGES]
 
 - Upgrade all packages to latest version. These packages include: `react`, `mapbox-gl`, `react-mapbox-gl`,...
+
+## Development
+
+### Starting the server in local
+- Adding the `.env` file
+- Adding the key `REACT_APP_MAPBOX_GL_TOKEN` into the `.env` file
+- Starting the server by: `yarn start`
+
+## Upgrading dependencies
+- Upgrading the dependencies
+```
+yarn upgrade-interactive --latest
+```
+- Test if the app works after upgrading: `yarn start`
+- Build the package: `yarn build`
+- Increasing the package version in the `package.json`
+- Push the change into Github
+- Publish the package into npmjs: `npm publish`
