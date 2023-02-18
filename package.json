@@ -1,6 +1,6 @@
 {
     "name": "react-mapbox-gl-spiderifier",
-    "version": "1.11.0",
+    "version": "1.11.1",
     "main": "dist/index.js",
     "module": "dist/index.js",
     "files": [
@@ -12,10 +12,10 @@
         "url": "https://github.com/thuanmb/react-mapbox-gl-spiderifier"
     },
     "dependencies": {
-        "classnames": "2.3.1",
+        "classnames": "2.3.2",
         "lodash": "4.17.21",
-        "mapbox-gl": "2.9.2",
-        "node-sass": "7.0.1",
+        "mapbox-gl": "2.12.1",
+        "node-sass": "8.0.0",
         "prop-types": "15.8.1",
         "react-mapbox-gl": "5.1.1"
     },
@@ -33,7 +33,7 @@
         "not ie 11"
     ],
     "devDependencies": {
-        "@babel/cli": "7.18.10",
+        "@babel/cli": "7.20.7",
         "babel-preset-react-app": "10.0.1",
         "react": "18.2.0",
         "react-dom": "18.2.0",
