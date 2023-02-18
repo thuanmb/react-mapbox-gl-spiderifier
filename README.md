@@ -75,7 +75,7 @@ class App extends Component {
 }
 ```
 
-## Doc
+## Documentation
 
 #### Properties
 
@@ -140,6 +140,14 @@ class App extends Component {
 
 ## ChangeLog:
 
+### 1.11.1
+
+- Bump dependencies version
+
+### 1.11.0
+
+- Bump dependencies version
+
 ### 1.10.0
 
 - Bump dependencies version
@@ -191,7 +199,9 @@ class App extends Component {
 - Adding the key `REACT_APP_MAPBOX_GL_TOKEN` into the `.env` file
 - Starting the server by: `yarn start`
 
-## Upgrading dependencies
+## Upgrading dependencies checklist
+- Pull the latest code
+- Create a new branch
 - Upgrading the dependencies
 ```
 yarn upgrade-interactive --latest
@@ -199,5 +209,6 @@ yarn upgrade-interactive --latest
 - Test if the app works after upgrading: `yarn start`
 - Build the package: `yarn build`
 - Increasing the package version in the `package.json`
+- Adding the release note in the `README`
 - Push the change into Github
 - Publish the package into npmjs: `npm publish`
