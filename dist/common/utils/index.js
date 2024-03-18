@@ -27,9 +27,6 @@ Object.defineProperty(exports, "isReactComponent", {
     return _react.isReactComponent;
   }
 });
-
 var _event = require("./event");
-
 var _props = require("./props");
-
 var _react = require("./react");
